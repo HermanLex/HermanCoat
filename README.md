@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HermanCoat
+
+Source for **hermancoats.com** — a custom Next.js storefront for a single versatile car coat (Phase 1: design and content; Stripe integration planned for a later phase).
+
+Bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
