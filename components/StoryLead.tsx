@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const full =
-  "Explore the essence of summer escapism, style, and sophistication in our collection — one coat designed to move with you from morning meetings to evening plans. Hērman is built around a single silhouette so every detail earns its place: fabric, drape, and finish are tuned for real life, not a one-season trend.";
+  "Explore the essence of summer escapism, style, and sophistication in our collection — one coat designed to move with you from morning meetings to evening plans. Hérman is built around a single silhouette so every detail earns its place: fabric, drape, and finish are tuned for real life, not a one-season trend.";
 
 const teaser =
   "Explore the essence of summer escapism, style, and sophistication in our new collection…";

@@ -81,7 +81,7 @@ export default function ProductPage() {
               A focused product minimizes compromise — design and material choices
               are optimized for one expression only. This allows precise tailoring,
               small-batch quality control, and a product that becomes instantly
-              recognizable. Hērman is not a catalog; it&apos;s one coat, refined
+              recognizable. Hérman is not a catalog; it&apos;s one coat, refined
               until it&apos;s right.
             </p>
             <p className="mt-8 text-center">

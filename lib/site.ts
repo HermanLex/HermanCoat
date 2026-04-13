@@ -1,9 +1,9 @@
 export const site = {
-  brand: "Hērman",
-  title: "Hērman — Hermancoat",
+  brand: "Hérman",
+  title: "Hérman — Hermancoat",
   domain: "hermancoat.com",
   description:
-    "One versatile car coat — refined design for every context. Hērman at Hermancoat.",
+    "One versatile car coat — refined design for every context. Hérman at Hermancoat.",
   inquiryEmail: "hello@hermancoat.com",
 } as const;
 

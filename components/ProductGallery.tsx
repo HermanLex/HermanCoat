@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 const images = [
-  { src: "/images/model-full.png", alt: "Hērman car coat — full length on model" },
-  { src: "/images/model-editorial.png", alt: "Hērman car coat — editorial" },
-  { src: "/images/product-flat.png", alt: "Hērman car coat — flat lay" },
+  { src: "/images/model-full.png", alt: "Hérman car coat — full length on model" },
+  { src: "/images/model-editorial.png", alt: "Hérman car coat — editorial" },
+  { src: "/images/product-flat.png", alt: "Hérman car coat — flat lay" },
 ] as const;
 
 export function ProductGallery() {
@@ -19,6 +19,7 @@ export function ProductGallery() {
           src={images[active].src}
           alt={images[active].alt}
           fill
+          unoptimized
           className="object-cover object-top"
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority
@@ -35,7 +36,14 @@ export function ProductGallery() {
             }`}
             aria-label={`View image ${i + 1}`}
           >
-            <Image src={img.src} alt="" fill className="object-cover object-top" sizes="96px" />
+            <Image
+              src={img.src}
+              alt=""
+              fill
+              unoptimized
+              className="object-cover object-top"
+              sizes="(max-width: 640px) 96px, 112px"
+            />
           </button>
         ))}
       </div>

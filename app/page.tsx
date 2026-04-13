@@ -14,15 +14,35 @@ export default function Home() {
 
       <main className="flex-1">
         <section className="relative w-full">
-          <div className="relative aspect-[4/3] w-full max-h-[78vh] sm:aspect-[2/1] sm:max-h-[85vh] md:aspect-[21/9]">
-            <Image
-              src="/images/hero-runway.png"
-              alt="Man in a Hērman coat running on an airport tarmac at sunrise, coat billowing"
-              fill
-              className="object-cover object-[center_35%]"
-              sizes="100vw"
-              priority
-            />
+          {/* Hero photography: desktop (<=475px tall) and a dedicated mobile crop (<651px wide). */}
+          <div className="w-full bg-white">
+            {/* Mobile / narrow screens: 500px tall crop, model centered */}
+            <div className="relative h-[500px] w-full min-[651px]:hidden">
+              <Image
+                src="/images/hero-loft-mobile.png"
+                alt="Model wearing the Hérman coat in a loft studio"
+                fill
+                unoptimized
+                className="object-cover object-center"
+                sizes="100vw"
+                priority
+              />
+            </div>
+
+            {/* Desktop: max width 1500px centered, 475px tall; white margins on ultra-wide */}
+            <div className="mx-auto hidden w-full max-w-[1500px] min-[651px]:block">
+              <div className="relative h-[475px] w-full">
+                <Image
+                  src="/images/hero-loft.png"
+                  alt="Model wearing the Hérman coat in a bright loft studio"
+                  fill
+                  unoptimized
+                  className="object-cover object-center"
+                  sizes="(max-width: 1500px) 100vw, 1500px"
+                  priority
+                />
+              </div>
+            </div>
           </div>
 
           <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
@@ -30,7 +50,7 @@ export default function Home() {
               {site.brand} · {product.tagline}
             </p>
             <h1 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-black sm:text-4xl md:text-5xl">
-              Hērman car coat
+              Hérman car coat
             </h1>
             <div className="mt-6 space-y-8">
               <StoryLead />
@@ -49,8 +69,9 @@ export default function Home() {
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-neutral-200">
               <Image
                 src="/images/model-editorial.png"
-                alt="Hērman coat — editorial"
+                alt="Hérman coat — editorial"
                 fill
+                unoptimized
                 className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -60,7 +81,7 @@ export default function Home() {
                 Versatile by design
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
-                One silhouette. Endless contexts. The Hērman car coat is cut for
+                One silhouette. Endless contexts. The Hérman car coat is cut for
                 movement and layered looks — sharp over tailoring, relaxed over
                 denim. Built to be the first thing you reach for when the day
                 could go anywhere.
