@@ -10,7 +10,7 @@ export const site = {
 export const product = {
   name: "Modern Classic Coat",
   shortName: "Car Coat",
-  tagline: "Summer 2025",
+  tagline: "2026",
   priceDisplay: "$3,995",
   leadTime: "Each coat is made to order. Lead time: 4–6 weeks.",
   features: [
@@ -21,6 +21,10 @@ export const product = {
     "Timeless silhouette",
   ],
   summary:
-    "A sophisticated design that seamlessly transitions from boardrooms to weekend adventure. Crafted with precision and purpose.",
+    "A timeless car coat that flows without announcing itself—cut clean, worn easily.",
+  summaryExtended: [
+    "Hérman's sophisticated coat design seamlessly transitions from boardrooms to weekend adventure. Crafted with precision and purpose. The elevated movement of this piece offers true versatility that adapts without friction.",
+    "Never overreaching. Never underdressed.",
+  ],
   availability: "Available in black only. One size fits all approach to versatile design.",
 } as const;

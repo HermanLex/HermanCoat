@@ -17,6 +17,9 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
+  icons: {
+    icon: [{ url: "/images/herman.svg", type: "image/svg+xml" }],
+  },
   title: {
     default: site.title,
     template: `%s · ${site.brand}`,

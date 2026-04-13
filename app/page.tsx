@@ -19,7 +19,7 @@ export default function Home() {
             {/* Mobile / narrow screens: 500px tall crop, model centered */}
             <div className="relative h-[500px] w-full min-[651px]:hidden">
               <Image
-                src="/images/hero-loft-mobile.png"
+                src="/images/roof-coat.avif"
                 alt="Model wearing the Hérman coat in a loft studio"
                 fill
                 unoptimized
@@ -33,7 +33,7 @@ export default function Home() {
             <div className="mx-auto hidden w-full max-w-[1500px] min-[651px]:block">
               <div className="relative h-[475px] w-full">
                 <Image
-                  src="/images/hero-loft.png"
+                  src="/images/roof-coat.avif"
                   alt="Model wearing the Hérman coat in a bright loft studio"
                   fill
                   unoptimized
@@ -49,8 +49,8 @@ export default function Home() {
             <p className="mb-2 text-xs font-medium uppercase tracking-[0.25em] text-neutral-500">
               {site.brand} · {product.tagline}
             </p>
-            <h1 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-black sm:text-4xl md:text-5xl">
-              Hérman car coat
+            <h1 className="text-3xl font-semibold tracking-tight text-black md:text-4xl">
+              {product.name}
             </h1>
             <div className="mt-6 space-y-8">
               <StoryLead />
@@ -68,8 +68,8 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-2 md:items-center md:gap-16 md:py-24">
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-neutral-200">
               <Image
-                src="/images/model-editorial.png"
-                alt="Hérman coat — editorial"
+                src="/images/tyree.png"
+                alt="Hérman coat — Tyree"
                 fill
                 unoptimized
                 className="object-cover object-top"

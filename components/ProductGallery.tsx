@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 const images = [
-  { src: "/images/model-full.png", alt: "Hérman car coat — full length on model" },
-  { src: "/images/model-editorial.png", alt: "Hérman car coat — editorial" },
+  { src: "/images/collar.png", alt: "Hérman car coat — collar detail" },
   { src: "/images/product-flat.png", alt: "Hérman car coat — flat lay" },
+  { src: "/images/model-full.png", alt: "Hérman car coat — full length on model" },
 ] as const;
 
 export function ProductGallery() {
@@ -21,7 +21,7 @@ export function ProductGallery() {
           fill
           unoptimized
           className="object-cover object-top"
-          sizes="(max-width: 1024px) 100vw, 50vw"
+          sizes="(max-width: 823px) 100vw, 50vw"
           priority
         />
       </div>
@@ -31,7 +31,7 @@ export function ProductGallery() {
             key={img.src}
             type="button"
             onClick={() => setActive(i)}
-            className={`relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border-2 transition-colors sm:h-24 sm:w-24 ${
+            className={`relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border-2 transition-colors sm:h-16 sm:w-16 ${
               active === i ? "border-black" : "border-transparent ring-1 ring-neutral-200"
             }`}
             aria-label={`View image ${i + 1}`}
@@ -42,7 +42,7 @@ export function ProductGallery() {
               fill
               unoptimized
               className="object-cover object-top"
-              sizes="(max-width: 640px) 96px, 112px"
+              sizes="(max-width: 640px) 56px, 64px"
             />
           </button>
         ))}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
-import { IconArrow } from "@/components/icons";
 import { ProductGallery } from "@/components/ProductGallery";
+import { ProductSizingAndPurchase } from "@/components/ProductSizingAndPurchase";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { product, site } from "@/lib/site";
@@ -12,10 +12,6 @@ export const metadata = {
 };
 
 export default function ProductPage() {
-  const mail = `mailto:${site.inquiryEmail}?subject=${encodeURIComponent(
-    `Inquiry — ${product.name}`,
-  )}`;
-
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <AnnouncementBar />
@@ -23,7 +19,7 @@ export default function ProductPage() {
 
       <main>
         <div className="mx-auto max-w-6xl px-6 py-10 md:py-14">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
+          <div className="grid gap-12 min-[824px]:grid-cols-2 min-[824px]:gap-16 min-[824px]:items-start">
             <ProductGallery />
 
             <div id="details" className="scroll-mt-28">
@@ -32,42 +28,28 @@ export default function ProductPage() {
                   {site.brand}
                 </span>
               </p>
-              <h1 className="mt-4 font-[family-name:var(--font-serif)] text-3xl font-medium tracking-tight text-black md:text-4xl">
+              <h1 className="mt-4 text-3xl font-semibold tracking-tight text-black md:text-4xl">
                 {product.name}
               </h1>
               <p className="mt-5 text-[15px] leading-relaxed text-neutral-600">
                 {product.summary}
               </p>
-              <p className="mt-8 text-3xl font-semibold tracking-tight text-black">
-                {product.priceDisplay}
-              </p>
-              <p className="mt-2 text-sm text-neutral-500">{product.availability}</p>
-
-              <div className="mt-10">
-                <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-black">
-                  Key features
-                </h2>
-                <ul className="mt-4 space-y-3 text-[15px] text-neutral-700">
-                  {product.features.map((f) => (
-                    <li key={f} className="flex gap-3">
-                      <IconArrow className="mt-1 shrink-0 text-black" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div id="contact" className="mt-10 scroll-mt-28">
-                <a
-                  href={mail}
-                  className="flex w-full items-center justify-center rounded-lg bg-black py-4 text-center text-sm font-medium uppercase tracking-[0.15em] text-white transition-colors hover:bg-neutral-900"
+              {product.summaryExtended.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="mt-4 text-[15px] leading-relaxed text-neutral-600"
                 >
-                  Inquire about purchase
-                </a>
-                <p className="mt-4 text-center text-xs text-neutral-500">
-                  {product.leadTime}
+                  {paragraph}
                 </p>
-              </div>
+              ))}
+
+              <ProductSizingAndPurchase
+                productName={product.name}
+                priceDisplay={product.priceDisplay}
+                availability={product.availability}
+                inquiryEmail={site.inquiryEmail}
+                leadTime={product.leadTime}
+              />
             </div>
           </div>
         </div>
