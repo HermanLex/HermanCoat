@@ -12,6 +12,9 @@ export const product = {
   shortName: "Car Coat",
   tagline: "2026",
   priceDisplay: "$3,995",
+  /** USD cents — must match `priceDisplay`; used for Stripe Checkout only. */
+  priceAmountUsdCents: 399_500,
+  checkoutCurrency: "usd" as const,
   leadTime: "Each coat is made to order. Lead time: 4–6 weeks.",
   features: [
     "Sophisticated minimalism",

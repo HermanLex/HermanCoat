@@ -44,10 +44,8 @@ export default function ProductPage() {
               ))}
 
               <ProductSizingAndPurchase
-                productName={product.name}
                 priceDisplay={product.priceDisplay}
                 availability={product.availability}
-                inquiryEmail={site.inquiryEmail}
                 leadTime={product.leadTime}
               />
             </div>

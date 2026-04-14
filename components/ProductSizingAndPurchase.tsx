@@ -1,43 +1,18 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 
 type Size = "S" | "M" | "L";
 
 const sizes: Size[] = ["S", "M", "L"];
 
-function buildMailto(opts: {
-  email: string;
-  subject: string;
-  bodyLines: string[];
-}) {
-  const subject = encodeURIComponent(opts.subject);
-  const body = encodeURIComponent(opts.bodyLines.join("\n"));
-  return `mailto:${opts.email}?subject=${subject}&body=${body}`;
-}
-
 export function ProductSizingAndPurchase(props: {
-  productName: string;
   priceDisplay: string;
   availability: string;
-  inquiryEmail: string;
   leadTime: string;
 }) {
   const [size, setSize] = useState<Size | "">("");
-
-  const buyNowHref = useMemo(() => {
-    if (!size) return "";
-    return buildMailto({
-      email: props.inquiryEmail,
-      subject: `Buy now — ${props.productName} (Size ${size})`,
-      bodyLines: [
-        `Product: ${props.productName}`,
-        `Size: ${size}`,
-        "",
-        "Hi, I'd like to buy this item. Please send next steps for payment and delivery.",
-      ],
-    });
-  }, [props.inquiryEmail, props.productName, size]);
 
   return (
     <div className="mt-10">
@@ -80,22 +55,24 @@ export function ProductSizingAndPurchase(props: {
           </select>
         </label>
 
-        <a
-          href={buyNowHref || undefined}
-          aria-disabled={!size}
-          className={[
-            "flex w-full items-center justify-center rounded-lg py-4 text-center text-sm font-medium uppercase tracking-[0.15em] transition-colors",
-            size
-              ? "bg-black text-white hover:bg-neutral-900"
-              : "cursor-not-allowed bg-neutral-200 text-neutral-500",
-          ].join(" ")}
-        >
-          Buy now
-        </a>
+        {size ? (
+          <Link
+            href={`/cart?size=${size}`}
+            className="flex w-full items-center justify-center rounded-lg bg-black py-4 text-center text-sm font-medium uppercase tracking-[0.15em] text-white transition-colors hover:bg-neutral-900"
+          >
+            Buy now
+          </Link>
+        ) : (
+          <span
+            aria-disabled
+            className="flex w-full cursor-not-allowed items-center justify-center rounded-lg bg-neutral-200 py-4 text-center text-sm font-medium uppercase tracking-[0.15em] text-neutral-500"
+          >
+            Buy now
+          </span>
+        )}
 
         <p className="text-center text-xs text-neutral-500">{props.leadTime}</p>
       </div>
     </div>
   );
 }
-
